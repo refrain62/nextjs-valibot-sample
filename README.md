@@ -29,6 +29,8 @@ $ mkdir src/components
 $ touch src/components/contract-form.tsx
 ```
 
+## ページを修正
+page.tsxを変更
 
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).

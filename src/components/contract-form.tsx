@@ -1,53 +1,50 @@
-"use client"
+"use client";
 
-import { FC } from "react"
-import { ContractSchema, ContractType } from "@/schema/contact"
-import { valibotResolver, vlibotResolver } from "@hookform/resolvers/valibot"
-import { SubmitHandler, useForm } from "react-hook-form"
+import { FC } from "react";
+import { ContactSchema, ContactType } from "@/schema/contact";
+import { valibotResolver } from "@hookform/resolvers/valibot";
+import { SubmitHandler, useForm } from "react-hook-form";
 
-interface ContractFormProps {}
+interface ContactFormProps {}
 
-const ContractForm: FC<ContractFormProps> = ({}) => {
-  const handleOnSubmit: SubmitHadnler<ContractType> = (data) => {
+const ContactForm: FC<ContactFormProps> = ({}) => {
+  const handleOnSubmit: SubmitHandler<ContactType> = (data) => {
     console.log(data);
   };
 
   const {
     register,
     handleSubmit,
-    formState: { errors: formError, inValid, isSubmitting },
-  } = useForm<ContractType>({
+    formState: { errors: formatError, isValid, isSubmitting },
+  } = useForm<ContactType>({
     mode: "onBlur",
-    resolver: valibotResolver(ContractSchema),
+    resolver: valibotResolver(ContactSchema),
   });
 
   return (
     <form
-      mthod="post"
+      method="post"
       onSubmit={(event) => {
         void handleSubmit(handleOnSubmit)(event);
       }}
       className="flex flex-col space-y-10"
-        >
-          <label className="flex flex-col space-y-1">
-            <div className="text-sm font-bold mb-1">
-              メールアドレス
-            </div>
-            <input 
-              type="text"
-              {...register("email")}
-              className="test-grey-800 mt-4 rounded-md border py-2 px-3"
-              placeholder="例）mail@example.com"
-              />
-            {formatError.email && (
-              <div className="text-red-500 pl-1 pt-1 text-xs">
-                {formatError.email.message}
-              </div>
-            )}
-          </label>
+    >
+      <label className="flex flex-col space-y-1">
+        <div className="text-sm font-bold mb-1">メールアドレス</div>
+        <input
+          type="text"
+          {...register("email")}
+          className="text-gray-800 mt-4 rounded-md border py-2 px-3"
+          placeholder="例）mail@example.com"
+        />
+        {formatError.email && (
+          <div className="text-red-500 pl-1 pt-1 text-xs">
+            {formatError.email.message}
+          </div>
+        )}
+      </label>
 
-
-          <label className="flex flex-col space-y-1">
+      <label className="flex flex-col space-y-1">
         <div className="text-sm font-bold mb-1">電話番号</div>
         <input
           type="text"
@@ -135,7 +132,6 @@ const ContractForm: FC<ContractFormProps> = ({}) => {
           </div>
         )}
       </div>
-
       <button
         type="submit"
         disabled={!isValid || isSubmitting}
@@ -145,6 +141,6 @@ const ContractForm: FC<ContractFormProps> = ({}) => {
       </button>
     </form>
   );
-}
+};
 
-export default ContractForm;
+export default ContactForm;
