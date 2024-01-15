@@ -16,6 +16,13 @@ $ pnpm add react-hook-form
 $ pnpm add @hookform/resolvers
 ```
 
+## Schemaを作成
+```
+$ mkdir src/schema
+$ touch src/schema/contact.ts
+$ touch src/schema/contactSimple.ts
+```
+
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
