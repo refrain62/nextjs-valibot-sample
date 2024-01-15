@@ -1,6 +1,21 @@
 # react-hook-form が Valibot に対応、Zod比較でバンドルサイズが92%削減 の写経
 https://zenn.dev/hayato94087/articles/f76c878bc97d65
 
+## プロジェクト作成
+```
+$ pnpm create next-app@latest nextjs-valibot-sample --typescript --eslint --import-alias "@/*" --src-dir --use-pnpm --tailwind --app
+$ cd ./nextjs-valibot-sample
+$ pnpm install
+```
+プロジェクトを作成して環境整備する
+
+## valibotをインストール
+```
+$ pnpm add valibot
+$ pnpm add react-hook-form
+$ pnpm add @hookform/resolvers
+```
+
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
